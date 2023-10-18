@@ -1,0 +1,15 @@
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\bin\Debug\net5.0\DB.deps.json
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\bin\Debug\net5.0\DB.runtimeconfig.json
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\bin\Debug\net5.0\DB.runtimeconfig.dev.json
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\bin\Debug\net5.0\DB.dll
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\bin\Debug\net5.0\DB.pdb
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.csproj.AssemblyReference.cache
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.AssemblyInfoInputs.cache
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.AssemblyInfo.cs
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.csproj.CoreCompileInputs.cache
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.dll
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\refint\DB.dll
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.pdb
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\DB.genruntimeconfig.cache
+C:\Estudios\Bebe-a-Ba\BebeABa\DB\obj\Debug\net5.0\ref\DB.dll
