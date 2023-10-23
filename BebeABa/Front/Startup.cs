@@ -1,16 +1,15 @@
+using Front.ViewModels;
+using Front.ViewModels.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.CodeAnalysis.Host;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SpareParts.Shared.ApiUtilities;
+using Shared.ApiUtilities;
+using Shared.Services;
+using Shared.Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Front
 {
@@ -35,6 +34,11 @@ namespace Front
             {
                 options.IdleTimeout = TimeSpan.FromDays(360);
             });
+            //ViewModels
+            services.AddScoped<IUserViewModel, UserViewModel>();
+
+            // Services
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +65,7 @@ namespace Front
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Index}/{id?}");
+                    pattern: "{controller=Register}/{action=Index}/{id?}");
             });
         }
     }

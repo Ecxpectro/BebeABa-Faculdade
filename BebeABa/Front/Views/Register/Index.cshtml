@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/plugins/jquery-toast/jquery.toast.css" rel="stylesheet" />
+    <link href="~/css/register.css" rel="stylesheet" />
+    <title>Cadastro</title>
+</head>
+<main>
+    <div class="container">
+        <div class="titulo">BEBÊ-A-BÁ</div>
+        <div class="login">
+            <h2>Cadastrar-se</h2>
+            <form class="labels" id="formRegister">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="username">Nome Completo:</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha:</label>
+                    <input type="password" id="registerPassword" name="registerPassword" required />
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirmar Senha:</label>
+                    <input type="password" id="registerConfirmPassword" name="registerConfirmPassword" required />
+                </div>
+                <button class="submit" type="submit">Registrar-se</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+@section scripts
+    {
+    <script src="~/js/bootstrap-waitingfor.js"></script>
+    <script src="~/app/app.js"></script>
+    <script src="~/app/register.js"></script>
+    <script src="~/plugins/jquery-toast/jquery.toast.js"></script>
+    <script>
+        $(document).ready(function () {
+            Register.Init();
+        });
+    </script>
+}

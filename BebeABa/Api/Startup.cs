@@ -1,7 +1,13 @@
+using Api.Business;
+using Api.Business.Interfaces;
+using Api.Repository;
+using Api.Repository.Interfaces;
+using DB.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Api
@@ -32,7 +39,27 @@ namespace Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
+
+
+            //Repositories
+            services.AddScoped<IUserRepository, UserRepository>();
+
+
+            //Business
+            services.AddScoped<IUserBusiness, UserBusiness>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddDbContext<BebeaBaContext>(opt =>
+            {
+                opt.UseSqlServer(Configuration.GetConnectionString("Connection"), sqlServerOptionsAction: sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure();
+                    sqlOptions.CommandTimeout((int)TimeSpan.FromMinutes(10).TotalSeconds);
+                    sqlOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                }).EnableSensitiveDataLogging();
+            });
         }
+    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

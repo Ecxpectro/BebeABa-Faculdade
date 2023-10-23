@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RIUFL24qu3ljhf1ZWeDOj+VqfMLKF68AJuhptDBjq3yuZ5Az1Shp0/ouBqHawbSbkyStA9N5YB3yk1FgPMOuVA==",
+  "dgSpecHash": "3IE/bgNO2U28Q/+DKrYvE9Ra6RvtaDiDzKc9oYdKWidcrMB1QBbOcGsC1iV9vKk7DdSBBltMhSzNkIlKPAGUvA==",
   "success": true,
-  "projectFilePath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj",
+  "projectFilePath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Henrique\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.8\\microsoft.aspnetcore.http.features.5.0.8.nupkg.sha512",
     "C:\\Users\\Henrique\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",

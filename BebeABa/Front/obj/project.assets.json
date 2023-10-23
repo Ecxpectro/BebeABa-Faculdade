@@ -5379,11 +5379,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Front\\Front.csproj",
+      "projectUniqueName": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Front\\Front.csproj",
       "projectName": "Front",
-      "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Front\\Front.csproj",
+      "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Front\\Front.csproj",
       "packagesPath": "C:\\Users\\Henrique\\.nuget\\packages\\",
-      "outputPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Front\\obj\\",
+      "outputPath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Front\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5407,8 +5407,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj"
+            "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj"
             }
           }
         }

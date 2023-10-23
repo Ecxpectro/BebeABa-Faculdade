@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj": {}
+    "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj": {}
   },
   "projects": {
-    "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj": {
+    "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\Shared.csproj",
+        "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\Henrique\\.nuget\\packages\\",
         "outputPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Shared\\obj\\",
         "projectStyle": "PackageReference",

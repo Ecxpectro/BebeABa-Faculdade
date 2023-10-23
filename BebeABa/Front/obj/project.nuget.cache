@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j+Bq7jWtY38YaGjQRypk4q9UpZ1zTtBPbu8Ykt2HMLWiDRP0NQJ85Vs71Yry7hx7Ay2ZESY3ARVT3PQmU37hVg==",
+  "dgSpecHash": "hpgUfq0iRFDuC1kHhHs8ZMERzY9D3vRYGg1Ai3rwYkqYwWY4BZlpsfblCplb6CThRwp2zRrDWxqAE2aa1ngGyw==",
   "success": true,
-  "projectFilePath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\Front\\Front.csproj",
+  "projectFilePath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\Front\\Front.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Henrique\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Henrique\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",

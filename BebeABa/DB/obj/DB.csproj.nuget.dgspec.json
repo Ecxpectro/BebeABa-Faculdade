@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\DB\\DB.csproj": {}
+    "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\DB\\DB.csproj": {}
   },
   "projects": {
-    "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\DB\\DB.csproj": {
+    "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\DB\\DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\DB\\DB.csproj",
+        "projectUniqueName": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\DB\\DB.csproj",
         "projectName": "DB",
-        "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\DB\\DB.csproj",
+        "projectPath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\DB\\DB.csproj",
         "packagesPath": "C:\\Users\\Henrique\\.nuget\\packages\\",
         "outputPath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\DB\\obj\\",
         "projectStyle": "PackageReference",

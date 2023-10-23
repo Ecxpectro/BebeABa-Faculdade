@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7NEFB4liKugLObPxb8vISsQPTxdQec4y/IL2MZZ8uqbfPdJkYVmur3wO4MNOQOAlOFYyuoDoUrBXhWVO98s16w==",
+  "dgSpecHash": "r3hT/gV03I7X7oPWflT+RsqRUeJEAmZGwKawXcnXKsDku3jokR8xAoWP5yql9qrK82+rOwl7M3Y8XmysxVQgrQ==",
   "success": true,
-  "projectFilePath": "C:\\Estudios\\Bebe-a-Ba\\BebeABa\\DB\\DB.csproj",
+  "projectFilePath": "C:\\Estudios\\Bebe-a-Ba\\BebeAba\\DB\\DB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Henrique\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Henrique\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

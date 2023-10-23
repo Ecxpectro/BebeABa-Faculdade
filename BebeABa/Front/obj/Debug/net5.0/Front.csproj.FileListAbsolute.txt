@@ -418,3 +418,4 @@ C:\Estudios\Bebe-a-Ba\BebeABa\Front\obj\Debug\net5.0\refint\Front.dll
 C:\Estudios\Bebe-a-Ba\BebeABa\Front\obj\Debug\net5.0\Front.pdb
 C:\Estudios\Bebe-a-Ba\BebeABa\Front\obj\Debug\net5.0\Front.genruntimeconfig.cache
 C:\Estudios\Bebe-a-Ba\BebeABa\Front\obj\Debug\net5.0\ref\Front.dll
+C:\Estudios\Bebe-a-Ba\BebeAba\Front\obj\Debug\net5.0\Razor\Views\Register\Index.cshtml.g.cs

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SpareParts.Shared.ApiUtilities
+namespace Shared.ApiUtilities
 {
     public class HostService
     {
