@@ -4,6 +4,7 @@
 
 App.RootURL = "";
 App.RootLocationURL = "";
+App.User = null;
 
 App.ToastError = function (msg) {
 	$.toast({
@@ -33,5 +34,43 @@ App.ToastSuccess = function (msg) {
 		text: msg,
 		position: "top-center",
 		icon: "success"
+	});
+};
+
+App.AlertSuccess = function (msg) {
+	swal({
+		title: "",
+		text: msg,
+		type: "success",
+		showCancelButton: false,
+		showConfirmButton: true,
+		confirmButtonClass: "btn-sm btn-success",
+		confirmButtonText: "OK",
+		closeOnConfirm: true
+	});
+};
+
+App.AlertWarning = function (msg) {
+	swal({
+		title: "",
+		text: msg,
+		type: "warning",
+		showCancelButton: false,
+		showConfirmButton: true,
+		confirmButtonClass: "btn-sm btn-warning",
+		confirmButtonText: "OK",
+		closeOnConfirm: true
+	});
+};
+App.AlertError = function (msg) {
+	swal({
+		title: "",
+		text: msg,
+		type: "error",
+		showCancelButton: false,
+		showConfirmButton: true,
+		confirmButtonClass: "btn-sm btn-danger",
+		confirmButtonText: "OK",
+		closeOnConfirm: true
 	});
 };

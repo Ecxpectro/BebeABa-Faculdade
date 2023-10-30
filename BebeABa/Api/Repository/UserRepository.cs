@@ -1,5 +1,6 @@
 ﻿using Api.Repository.Interfaces;
 using DB.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Api.Repository
@@ -17,5 +18,12 @@ namespace Api.Repository
             _context.Add(user);
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<Users> Login(Users user) =>
+            await _context
+                .Users
+                .FirstOrDefaultAsync(u =>
+                    (u.UserEmail == user.UserEmail) &&
+                    u.UserPassword == user.UserPassword);
     }
 }

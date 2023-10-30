@@ -22,5 +22,13 @@ namespace Shared.Services
                 "POST",
                 string.Empty,
                 string.Empty);
+
+        public async Task<Response> Login(UserModel user) => await RestUtility.WebServiceAsync
+            ($"{_host.UserEndpoint}/Login",
+                string.Empty,
+                user,
+                "POST",
+                string.Empty,
+                string.Empty);
     }
 }

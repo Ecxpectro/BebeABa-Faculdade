@@ -7,5 +7,6 @@ namespace Front.ViewModels.Interface
     public interface IUserViewModel
     {
         Task<Response> CreateUser(UserModel user);
+        Task<Response> Login(UserModel user);
     }
 }

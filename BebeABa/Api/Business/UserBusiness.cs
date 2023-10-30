@@ -38,5 +38,33 @@ namespace Api.Business
 
             return response;
         }
+
+        public async Task<Response> Login(UserModel user)
+        {
+            var response = new Response();
+
+            try
+            {
+                var userLogged = await _userRepository.Login(_mapper.Map<Users>(user));
+
+                if (userLogged != null)
+                {
+                    response.Status = StatusCode.Success;
+                    response.Result = _mapper.Map<UserModel>(userLogged);
+                }
+                else
+                {
+                    response.Status = StatusCode.NotFound;
+                    response.Message = "Not Found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Status = StatusCode.ServerError;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
     }
 }

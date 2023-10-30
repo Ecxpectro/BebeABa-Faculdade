@@ -15,5 +15,8 @@ namespace Front.ViewModels
             _userService = userService;
         }
         public async Task<Response> CreateUser(UserModel user) => await _userService.CreateUser(user);
+
+        public async Task<Response> Login(UserModel user) => await _userService.Login(user);
+     
     }
 }

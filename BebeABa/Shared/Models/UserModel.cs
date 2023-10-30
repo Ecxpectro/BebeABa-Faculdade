@@ -6,5 +6,8 @@
         public string UserEmail { get; set; }
         public string UserFullName { get; set; }
         public string UserPassword { get; set; }
+
+
+        public bool CheckRememberMe { get; set; }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Api.Business.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Models;
-using Shared.ApiUtilities;
 using System.Threading.Tasks;
 
 namespace Api.Controllers
@@ -19,10 +17,9 @@ namespace Api.Controllers
         }
 
         [HttpPost("Users")]
-        public async Task<ActionResult<Response>> CreateUser(UserModel user)
-        {
-            var response = await _userBusiness.CreateUser(user);
-            return Ok(response);
-        }
+        public async Task<IActionResult> CreateUser(UserModel user) => Ok(await _userBusiness.CreateUser(user));
+
+        [HttpPost("Users/Login")]
+        public async Task<IActionResult> Login(UserModel user) => Ok(await _userBusiness.Login(user));
     }
 }
