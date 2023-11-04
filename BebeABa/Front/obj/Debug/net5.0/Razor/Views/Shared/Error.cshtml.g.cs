@@ -26,8 +26,29 @@ using Front.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Shared.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Shared.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"5dbf98b6b9394ad78206edce40cab1d7a238aa69cfefa41bab0ebc6aa22488aa", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"03bd1edee3678ed5e25a1c72e5686a147d05e450d6737e6f5dc6eccdbba8cd8e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"de6f1a2b0e4cd6f2bd6ba1f4b43207def1ec6f87160e7dea693c1d2207ca7615", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     #nullable disable

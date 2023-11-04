@@ -17,10 +17,32 @@ namespace DB.Models
         {
         }
 
+        public virtual DbSet<Children> Children { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Children>(entity =>
+            {
+                entity.Property(e => e.BirthDate).HasColumnType("datetime");
+
+                entity.Property(e => e.ChildrenFatherName).HasMaxLength(200);
+
+                entity.Property(e => e.ChildrenMotherName).HasMaxLength(200);
+
+                entity.Property(e => e.ChildrenName)
+                    .IsRequired()
+                    .HasMaxLength(200);
+
+                entity.Property(e => e.ImgPath).IsRequired();
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Children)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Children_Users");
+            });
+
             modelBuilder.Entity<Users>(entity =>
             {
                 entity.HasKey(e => e.UserId);

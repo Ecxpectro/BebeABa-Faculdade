@@ -30,7 +30,6 @@ Register.ValidadeUserCreate = function () {
 }
 
 Register.Register = function (user) {
-	console.log(user)
 	App.ShowLoadingModal();
 	$.post(Register.URL_CreateUser, user).done(function (result) {
 		if (result.success) {

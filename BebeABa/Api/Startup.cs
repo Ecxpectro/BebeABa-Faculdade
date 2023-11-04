@@ -43,10 +43,14 @@ namespace Api
 
             //Repositories
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IChildrenRepository, ChildrenRepository>();
 
 
             //Business
             services.AddScoped<IUserBusiness, UserBusiness>();
+            services.AddScoped<IChildrenBusiness, ChildrenBusiness>();
+
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddDbContext<BebeaBaContext>(opt =>

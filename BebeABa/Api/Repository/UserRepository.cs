@@ -22,6 +22,7 @@ namespace Api.Repository
         public async Task<Users> Login(Users user) =>
             await _context
                 .Users
+                .Include(x => x.Children)
                 .FirstOrDefaultAsync(u =>
                     (u.UserEmail == user.UserEmail) &&
                     u.UserPassword == user.UserPassword);

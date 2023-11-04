@@ -5,14 +5,12 @@
 Login.URL_Login = `${App.RootLocationURL}/Login/Login`;
 
 Login.Init = function () {
-	console.log("test")
 	Login.Login();
 }
 
 Login.Login = function () {
 	$(document).on("submit", "#formLogin", function (e) {
 		e.preventDefault();
-		console.log("testando")
 		var user;
 		user = {
 			UserEmail: $("#username").val(),
@@ -22,7 +20,13 @@ Login.Login = function () {
 
 		$.post(Login.URL_Login, user, function (result) {
 			if (result.success) {
-				window.location.href = '/Children/Index'
+				if (result.user.childrens == null) {
+					window.location.href = '/Children/RegisterChild'
+				}
+				else {
+					window.location.href = '/Children/Index'
+				}
+			
 				
 			} else {
 				if (result.msg != "") {

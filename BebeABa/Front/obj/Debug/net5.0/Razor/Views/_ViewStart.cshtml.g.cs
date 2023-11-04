@@ -26,8 +26,29 @@ using Front.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Shared.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Shared.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"47e02b4da20d198892b7b1b00b12944068797c438ef2e82d20ff70b4d56bad39", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"03bd1edee3678ed5e25a1c72e5686a147d05e450d6737e6f5dc6eccdbba8cd8e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"de6f1a2b0e4cd6f2bd6ba1f4b43207def1ec6f87160e7dea693c1d2207ca7615", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

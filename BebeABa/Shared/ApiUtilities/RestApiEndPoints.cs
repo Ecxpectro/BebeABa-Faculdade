@@ -13,6 +13,7 @@ namespace Shared.ApiUtilities
 
 
         public string UserEndpoint => $"{BaseAddress}BebeABa/Users";
+        public string ChildrenEndpoint => $"{BaseAddress}BebeABa/Children";
 
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Shared.Models
+﻿using System.Collections.Generic;
+
+namespace Shared.Models
 {
     public class UserModel
     {
@@ -7,7 +9,7 @@
         public string UserFullName { get; set; }
         public string UserPassword { get; set; }
 
-
+        public List<ChildrenModel> Childrens { get; set; }
         public bool CheckRememberMe { get; set; }
     }
 }

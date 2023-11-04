@@ -7,9 +7,17 @@ namespace DB.Models
 {
     public partial class Users
     {
+        public Users()
+        {
+            Children = new HashSet<Children>();
+        }
+
         public long UserId { get; set; }
         public string UserFullName { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
+        public bool? IsDoctor { get; set; }
+
+        public virtual ICollection<Children> Children { get; set; }
     }
 }

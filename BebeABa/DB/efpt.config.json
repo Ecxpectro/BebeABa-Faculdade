@@ -15,6 +15,10 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
+         "Name": "[dbo].[Children]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Users]",
          "ObjectType": 0
       }
