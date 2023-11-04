@@ -1,1 +1,104 @@
-﻿
+﻿body {
+	background: linear-gradient(to right, #38b6ff, #f57cb9);
+}
+
+header {
+	text-align: center;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 70px;
+	margin-top: 1%;
+	color: rgb(103, 0, 199);
+}
+
+nav {
+	text-align: center;
+	margin-top: 10px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 20px;
+	color: azure;
+}
+
+div {
+	text-align: center;
+	padding: 5px;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+
+#divCria {
+	background-color: #87cefa;
+	width: 60%;
+	height: 40%;
+}
+
+
+form {
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	border-radius: 8px;
+	margin: 0 auto;
+	margin-top: 1cm;
+}
+
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+input {
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	font-size: 15px;
+}
+
+	input[type="submit"] {
+		background-color: #0b80c4;
+		color: white;
+		border: none;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+button {
+	background-color: #289bfa;
+	color: #fff;
+	padding: 10px 30px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#login-button {
+	width: 5cm;
+	font-size: 15px;
+}
+
+#cadastro {
+	font-size: 20px;
+}
+
+
+input[type="submit"]:hover {
+	background-color: rgb(103, 0, 199);
+}
+
+button[type="submit"]:hover {
+	background-color: rgb(103, 0, 199);
+}
+.form-login-w-40{
+	width: 40%
+}
+.register-background-color {
+	background-color: #ffaed6;
+	max-width:50%;
+	margin-top:12px;
+}

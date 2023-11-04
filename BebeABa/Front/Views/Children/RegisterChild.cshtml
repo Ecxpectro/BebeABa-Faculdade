@@ -5,46 +5,39 @@
     var userLogged = JsonConvert.DeserializeObject<UserModel>(FunctionsHelper.Decrypt(Context.Request.Cookies["userLoggedBebeABa"]));
 
 }
-<!DOCTYPE html>
 <head>
-    <link href="~/css/login.css" rel="stylesheet" />
-    <link href="~/plugins/jquery-toast/jquery.toast.css" rel="stylesheet" />
-    <title>Cadastrar Dependente</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Criança</title>
 </head>
-<main>
-    <div class="container">
-        <div class="titulo">BEBÊ-A-BÁ</div>
-        <div class="row" style="justify-content:center">
-            <div class="login">
-                <h2>Adicionar criança</h2>
-                <form class="labels" id="formRegister">
-                    <div class="form-group">
-                        <label for="childrenName">Nome da Criança:</label>
-                        <input type="text" id="childrenName" name="childrenName" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="fatherName">Nome do Pai:</label>
-                        <input type="text" id="fatherName" name="fatherName"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="motherName">Nome da Mãe:</label>
-                        <input type="text" id="motherName" name="motherName"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="birthDate">Data de Nascimento:</label>
-                        <input id="date-picker" autocomplete="off" class="datePicker" name="birthDate" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="childrenPicture">Foto</label>
-                        <input type="file" id="childrenPicture" name="childrenPicture" class="childrenPicture">
-                    </div>
-                    <button class="submit" type="submit">Adicionar Criança</button>
-                </form>
+<body>
+    <header>
+        <strong>Bebê-a-Bá</strong>
+        <nav>
+            <strong>O DIA A DIA DO SEU AMOR</strong>
+        </nav>
+        <img src="~/img/baby1.svg" alt="" width="120" style="margin-top: 20px;">
+    </header>
+    <div id="divCria">
+        <h1>CADASTRO DE CRIANÇA</h1>
+        <form id="formRegister">
+            <label for="motherName">Nome da Mãe:</label>
+            <input class="impCria" type="text" id="motherName" name="motherName">
+            <label for="fatherName">Nome do Pai:</label>
+            <input type="text" id="fatherName" name="fatherName">
+            <label for="childrenName">Nome da Criança:</label>
+            <input type="text" id="childrenName" name="childrenName" required>
+            <label for="birthDate">Data de Nascimento:</label>
+            <div class="form-group">
+            <input id="date-picker" autocomplete="off" class="datePicker" name="birthDate" required />
+            <label for="childrenPicture">Foto da Criança:</label>
             </div>
-        </div>
+            <input type="file" id="childrenPicture" name="childrenPicture" required>
+            <button type="submit"><b>Cadastrar Criança</b></button>
+        </form>
     </div>
-</main>
-
+</body>
 
 
 @section scripts

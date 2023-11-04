@@ -8,6 +8,7 @@ namespace Shared.Models
         public string UserEmail { get; set; }
         public string UserFullName { get; set; }
         public string UserPassword { get; set; }
+        public bool IsDoctor { get; set; }
 
         public List<ChildrenModel> Childrens { get; set; }
         public bool CheckRememberMe { get; set; }

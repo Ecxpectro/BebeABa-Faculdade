@@ -28,7 +28,7 @@ namespace Front.Controllers
             var cookieValue = _httpContextAccessor.HttpContext?.Request.Cookies["userLoggedBebeABa"];
             if (cookieValue != null)
             { user = JsonConvert.DeserializeObject<UserModel>(FunctionsHelper.Decrypt(cookieValue)); }
-            ViewBag.UserLogged = user;
+            ViewBag.UserLogged = null;
             return View();
         }
 
