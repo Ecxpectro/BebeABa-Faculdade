@@ -4,7 +4,8 @@
 Children.URL_Save = `${App.RootLocationURL}/Children/Save`;
 Children.Init = function () {
 	Children.DataPicker();
-	Children.Save();
+	Children.SaveChildren();
+	//Children.GridChildrenTimeLine();
 }
 
 Children.DataPicker = function () {
@@ -46,7 +47,7 @@ Children.DataPicker = function () {
 	});
 }
 
-Children.Save = function () {
+Children.SaveChildren = function () {
 	$(document).on("submit", "#formRegister", function (e) {
 		e.preventDefault();
 		App.ShowLoadingModal();
@@ -92,3 +93,39 @@ Children.Save = function () {
 	});
 
 }
+
+Children.ShowModalChildrenTimeLine = function () {
+	$("#modalTimeLine").modal("show");
+}
+
+//Children.GridChildrenTimeLine = function () {
+//	$("#GridChildrenTimeLine").DataTable(
+//		{
+//			responsive: true,
+//			"destroy": true,
+//			"scrollX": false,
+//			"processing": true,
+//			"serverSide": true,
+//			//"ajax": {
+//			//	"url": PhysicalStores.URL_GridPhysicalStores,
+//			//	"type": "POST",
+//			//	"datatype": "json"
+//			//},
+//			"columnDefs": [
+//				{
+//					"targets": "_all",
+//					"className": "text-center"
+//				}
+//			],
+//			"columns": [
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//				{ "data": "", "name": "", "autoWidth": true },
+//			],
+//		});
+//}

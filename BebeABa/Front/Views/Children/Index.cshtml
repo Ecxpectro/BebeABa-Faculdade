@@ -1,6 +1,67 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    var userLogged = JsonConvert.DeserializeObject<UserModel>(FunctionsHelper.Decrypt(Context.Request.Cookies["userLoggedBebeABa"]));
 }
-<h1>StartingPage</h1>
+
+<main>
+    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+        <div class="container">
+            <div class="page-header-content pt-0"></div>
+        </div>
+    </header>
+    <div class="container mt-n10">
+
+        <div class="card">
+            <div class="row" style="padding-left:16px; display:flex; align-items:center; gap:10px;">
+                <span>Tabela de Registros</span>
+                <a class="pointer" onclick="Children.ShowModalChildrenTimeLine(null)" style="color: #007bff">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="datatable">
+                        <table id="GridChildrenTimeLine" class="table table-bordered table-hover" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Idade</th>
+                                    <th>Peso</th>
+                                    <th>Altura</th>
+                                    <th>Vacina</th>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Arquivo</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td>Idade</td>
+                                    <td>Peso</td>
+                                    <td>Altura</td>
+                                    <td>Vacina</td>
+                                    <td>Data</td>
+                                    <td>Descrição</td>
+                                    <td>Arquivo</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<partial name="_ModalChildrenTimeLine" />
+
+@section scripts{
+    <script src="~/app/children.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            App.User = @Html.Raw(Json.Serialize(userLogged));
+            Children.Init();
+        });
+    </script>
+}

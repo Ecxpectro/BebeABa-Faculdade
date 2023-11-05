@@ -2,16 +2,15 @@
 @using Shared.Models;
 @using Shared.Helpers;
 @{
+    Layout = "_LoginLayout";
     var userLogged = JsonConvert.DeserializeObject<UserModel>(FunctionsHelper.Decrypt(Context.Request.Cookies["userLoggedBebeABa"]));
-
 }
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Criança</title>
 </head>
-<body>
+<main>
     <header>
         <strong>Bebê-a-Bá</strong>
         <nav>
@@ -37,15 +36,15 @@
             <button type="submit"><b>Cadastrar Criança</b></button>
         </form>
     </div>
-</body>
+</main>
 
 
 @section scripts
     {
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/plugins/jquery-toast/jquery.toast.css" rel="stylesheet" />
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/plugins/jquery-toast/jquery.toast.js"></script>
-    <link href="~/plugins/jquery-toast/jquery.toast.css" rel="stylesheet" />
     <script src="~/js/bootstrap-waitingfor.js"></script>
     <script src="~/plugins/moment/moment.js"></script>
     <script src="~/app/children.js"></script>

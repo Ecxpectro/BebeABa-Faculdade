@@ -1,16 +1,34 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+﻿<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/plugins/jquery-toast/jquery.toast.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/personalized.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
 </head>
-<body>
-@*     <header>
-        
-    </header> *@
+<main>
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="menu__box">
+            <li><a class="menu__item" href="#">Perfil</a></li>
+            <li><a class="menu__item" href="#">Linha do Tempo</a></li>
+            <li><a class="menu__item" href="#">Fórum</a></li>
+            <li><a class="menu__item" href="#">Sair</a></li>
+        </ul>
+        <header style="text-align: center;">
+            <strong>Bebê-a-Bá</strong>
+            <nav>
+                <strong>O DIA A DIA DO SEU AMOR</strong>
+            </nav>
+            <img src="~/img/baby1.svg" alt="" width="120" style="margin-top: 20px;">
+        </header>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -22,10 +40,14 @@
             &copy; 2023 - Front - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer> *@
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/plugins/jquery-toast/jquery.toast.js"></script>
+    <script src="~/js/bootstrap-waitingfor.js"></script>
+    <script src="~/plugins/moment/moment.js"></script>
     <script src="~/app/app.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+</main>
