@@ -18,6 +18,7 @@ namespace DB.Models
         }
 
         public virtual DbSet<Children> Children { get; set; }
+        public virtual DbSet<ChildrenTimeLine> ChildrenTimeLine { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,6 +42,31 @@ namespace DB.Models
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Children_Users");
+            });
+
+            modelBuilder.Entity<ChildrenTimeLine>(entity =>
+            {
+                entity.Property(e => e.Description).IsRequired();
+
+                entity.Property(e => e.FilePath).HasMaxLength(200);
+
+                entity.Property(e => e.Height)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.TimeLineDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Vaccine).HasMaxLength(100);
+
+                entity.Property(e => e.Weight)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.HasOne(d => d.Children)
+                    .WithMany(p => p.ChildrenTimeLine)
+                    .HasForeignKey(d => d.ChildrenId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ChildrenTimeLine_Children");
             });
 
             modelBuilder.Entity<Users>(entity =>

@@ -7,6 +7,11 @@ namespace DB.Models
 {
     public partial class Children
     {
+        public Children()
+        {
+            ChildrenTimeLine = new HashSet<ChildrenTimeLine>();
+        }
+
         public long ChildrenId { get; set; }
         public long UserId { get; set; }
         public string ChildrenName { get; set; }
@@ -16,5 +21,6 @@ namespace DB.Models
         public DateTime BirthDate { get; set; }
 
         public virtual Users User { get; set; }
+        public virtual ICollection<ChildrenTimeLine> ChildrenTimeLine { get; set; }
     }
 }
