@@ -44,11 +44,13 @@ namespace Api
             //Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IChildrenRepository, ChildrenRepository>();
+            services.AddScoped<IChildrenTimeLineRepository, ChildrenTimeLineRepository>();
 
 
             //Business
             services.AddScoped<IUserBusiness, UserBusiness>();
             services.AddScoped<IChildrenBusiness, ChildrenBusiness>();
+            services.AddScoped<IChildrenTimeLineBusiness, ChildrenTimeLineBusiness>();
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
