@@ -15,5 +15,7 @@ namespace Front.ViewModels
             _childrenService = childrenService;
         }
         public async Task<Response> CreateChildren(ChildrenModel children) => await _childrenService.CreateChildren(children);
+
+        public async Task<Response> GetChildrenById(long childrenId) => await _childrenService.GetChildrenById(childrenId);
     }
 }

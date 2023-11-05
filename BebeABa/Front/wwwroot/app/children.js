@@ -2,10 +2,15 @@
 	Children = {};
 }
 Children.URL_Save = `${App.RootLocationURL}/Children/Save`;
+Children.URL_SaveTimeLine = `${App.RootLocationURL}/Children/SaveTimeLine`;
+
+Children.Children = null;
+
 Children.Init = function () {
 	Children.DataPicker();
 	Children.SaveChildren();
 	//Children.GridChildrenTimeLine();
+	Children.SaveTimeLine();
 }
 
 Children.DataPicker = function () {
@@ -129,3 +134,53 @@ Children.ShowModalChildrenTimeLine = function () {
 //			],
 //		});
 //}
+
+
+Children.SaveTimeLine = function () {
+	$(document).on("submit", "#formRegisterTimeLine", function (e) {
+		e.preventDefault();
+		App.ShowLoadingModal();
+		var selectedDate = $(".datePicker").datepicker('getDate');
+		var day = selectedDate.getDate();
+		var month = selectedDate.getMonth() + 1;
+		var year = selectedDate.getFullYear();
+		var date = moment(`${year}/${month.toString().padStart(2, '0')}/${day}`).format("YYYY-MM-DDTHH:mm:ss");
+
+		const childrenTimeLine = {
+			ChildrenTimeLineId: Children.Children == null ? 0 : Children.Children.childrenTimeLineId,
+			ChildrenId: 7,
+			Height: $("#height").val(),
+			Weight: $("#weight").val(),
+			Vaccine: $("#vaccine").val(),
+			TreatmentType: $("#treatmentType").val(),
+			Description: $("#description").val(),
+			TimeLineDate: date
+		}
+		var formData = new FormData();
+		var childrenTimeLineJson = JSON.stringify(childrenTimeLine);
+		var file = $("#file")[0].files[0];
+
+		formData.append("ChildrenTimeLineJson", childrenTimeLineJson);
+		formData.append("File", file);
+
+		$.ajax({
+			type: "POST",
+			url: Children.URL_SaveTimeLine,
+			data: formData,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function (result) {
+				if (result.success) {
+					console.log(result);
+					App.HideLoadingModal();
+				} else {
+					App.ToastError(result.msg);
+					App.HideLoadingModal();
+				}
+				return true;
+			}
+		});
+	});
+
+}

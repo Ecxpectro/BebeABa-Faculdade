@@ -7,5 +7,6 @@ namespace Shared.Services.Interfaces
     public interface IChildrenService
     {
         Task<Response> CreateChildren(ChildrenModel children);
+        Task<Response> GetChildrenById(long childrenId);
     }
 }

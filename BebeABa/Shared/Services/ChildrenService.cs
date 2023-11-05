@@ -22,5 +22,12 @@ namespace Shared.Services
                 "POST",
                 string.Empty,
                 string.Empty);
+        public async Task<Response> GetChildrenById(long childrenId) => await RestUtility.WebServiceAsync(
+        $"{_host.ChildrenEndpoint}/{childrenId}",
+        string.Empty,
+        null,
+        "GET",
+        string.Empty,
+        string.Empty);
     }
 }

@@ -16,6 +16,7 @@ namespace DB.Models
         public string TreatmentType { get; set; }
         public string Description { get; set; }
         public string FilePath { get; set; }
+        public int? ChildAge { get; set; }
 
         public virtual Children Children { get; set; }
     }

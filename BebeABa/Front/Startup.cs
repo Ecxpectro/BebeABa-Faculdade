@@ -37,10 +37,12 @@ namespace Front
             //ViewModels
             services.AddScoped<IUserViewModel, UserViewModel>();
             services.AddScoped<IChildrenViewModel, ChildrenViewModel>();
+            services.AddScoped<IChildrenTimeLineViewModel, ChildrenTimeLineViewModel>();
 
             // Services
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IChildrenService, ChildrenService>();
+            services.AddScoped<IChildrenTimeLineService, ChildrenTimeLineService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

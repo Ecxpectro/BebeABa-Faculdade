@@ -1,5 +1,6 @@
 ﻿using Api.Repository.Interfaces;
 using DB.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
@@ -18,5 +19,8 @@ namespace Api.Repository
             _context.Add(children);
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<Children> GetChildrenById(long childrenId) => await _context.Children.FirstOrDefaultAsync(x => x.ChildrenId == childrenId);
+
     }
 }

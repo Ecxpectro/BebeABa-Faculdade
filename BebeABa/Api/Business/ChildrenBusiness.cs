@@ -38,5 +38,30 @@ namespace Api.Business
 
             return response;
         }
+
+        public async Task<Response> GetChildrenById(long childrenId)
+        {
+            Response response = new Response();
+            try
+            {
+                var children = await _childrenRepository.GetChildrenById(childrenId);
+                if (children is not null)
+                {
+                    response.Status = StatusCode.Success;
+                    response.Result = _mapper.Map<ChildrenModel>(children);
+                }
+                else
+                {
+                    response.Status = StatusCode.NotFound;
+                    response.Message = "Not Found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Status = StatusCode.ServerError;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
     }
 }

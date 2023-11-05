@@ -19,5 +19,8 @@ namespace Api.Controllers
 
         [HttpPost("Children")]
         public async Task<IActionResult> CreateChildren(ChildrenModel children) => Ok(await _childrenBusiness.CreateChildren(children));
+
+        [HttpGet("Children/{childrenId}")]
+        public async Task<IActionResult> GetChildrenById(long childrenId) => Ok(await _childrenBusiness.GetChildrenById(childrenId));
     }
 }
