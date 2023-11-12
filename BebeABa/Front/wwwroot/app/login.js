@@ -33,6 +33,7 @@ Login.Init = function () {
 Login.Login = function () {
 	$(document).on("submit", "#formLogin", function (e) {
 		e.preventDefault();
+		App.ShowLoadingModal();
 		console.log("test")
 		var user;
 		user = {
@@ -57,8 +58,10 @@ Login.Login = function () {
 				}
 			} else {
 				if (result.msg != "") {
+					App.HideLoadingModal();
 					App.AlertError(result.msg);
 				} else {
+					App.HideLoadingModal();
 					App.AlertWarning("Usuário ou senha incorreto.");
 				}
 			}

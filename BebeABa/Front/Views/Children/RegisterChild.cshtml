@@ -27,12 +27,19 @@
             <input type="text" id="fatherName" name="fatherName">
             <label for="childrenName">Nome da Criança:</label>
             <input type="text" id="childrenName" name="childrenName" required>
-            <label for="birthDate">Data de Nascimento:</label>
+            <label for="childSex">Sexo:</label>
+            <select id="childSex">
+                <option value="">Selecione...</option>
+                <option value="1">Menina</option>
+                <option value="2">Menino</option>
+            </select>
+            
             <div class="form-group">
+                <label for="birthDate">Data de Nascimento:</label>
             <input id="date-picker" autocomplete="off" class="datePicker" name="birthDate" required />
             <label for="childrenPicture">Foto da Criança:</label>
-            </div>
             <input type="file" id="childrenPicture" name="childrenPicture" required>
+            </div>
             <button type="submit"><b>Cadastrar Criança</b></button>
         </form>
     </div>

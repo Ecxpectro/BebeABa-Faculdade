@@ -74,8 +74,10 @@ Children.SaveChildren = function () {
 			ChildrenName: $("#childrenName").val(),
 			ChildrenFatherName: $("#fatherName").val(),
 			ChildrenMotherName: $("#motherName").val(),
-			BirthDate: date
+			BirthDate: date,
+			ChildSex: $("#childSex").val()
 		}
+		console.log(children)
 		var formData = new FormData();
 		var childrenJson = JSON.stringify(children);
 		var file = $("#childrenPicture")[0].files[0];
@@ -92,8 +94,7 @@ Children.SaveChildren = function () {
 			processData: false,
 			success: function (result) {
 				if (result.success) {
-					console.log(result);
-					//App.HideLoadingModal();
+					window.location.href = '/Children/ChildrenProfile';
 				} else {
 					App.ToastError(result.msg);
 					App.HideLoadingModal();
