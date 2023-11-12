@@ -17,6 +17,7 @@ namespace DB.Models
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public bool? IsDoctor { get; set; }
+        public string UserFilePath { get; set; }
 
         public virtual ICollection<Children> Children { get; set; }
     }
