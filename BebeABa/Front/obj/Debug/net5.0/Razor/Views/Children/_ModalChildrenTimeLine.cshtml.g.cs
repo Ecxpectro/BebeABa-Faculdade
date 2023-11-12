@@ -6,7 +6,6 @@ namespace AspNetCore
 {
     #line hidden
     using global::System;
-    using global::System.Collections.Generic;
     using global::System.Linq;
     using global::System.Threading.Tasks;
     using global::Microsoft.AspNetCore.Mvc;
@@ -47,8 +46,29 @@ using Newtonsoft.Json;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using System.Collections.Generic;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Shared.Enums;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Estudios\Bebe-a-Ba\BebeAba\Front\Views\_ViewImports.cshtml"
+using Shared;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"195ed55f05471e80b1badac383380d2bead4505860fecc0f66629e5b15ffb686", @"/Views/Children/_ModalChildrenTimeLine.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"de6f1a2b0e4cd6f2bd6ba1f4b43207def1ec6f87160e7dea693c1d2207ca7615", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA256", @"49c6915614c993c74e55a971185f74ecdf0747954318c12c242e67d3bad9917a", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Children__ModalChildrenTimeLine : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -81,7 +101,7 @@ using Newtonsoft.Json;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div id=\"modalTimeLine\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" data-keyboard=\"false\">\r\n\t<div class=\"modal-dialog modal-xl modal-dialog-scrollable\" role=\"document\">\r\n\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "195ed55f05471e80b1badac383380d2bead4505860fecc0f66629e5b15ffb6864852", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "195ed55f05471e80b1badac383380d2bead4505860fecc0f66629e5b15ffb6865302", async() => {
                 WriteLiteral(@"
 			<div class=""modal-header"">
 				<h5 class=""modal-title"">Linha do tempo</h5>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Shared.ApiUtilities;
+using Shared.FilterModels;
 using Shared.Models;
 using Shared.Services.Interfaces;
 using System.Threading.Tasks;
@@ -15,6 +16,14 @@ namespace Shared.Services
             _service = service.Value;
             _host = new RestApiEndPoints(_service);
         }
+
+        public async Task<Response> GetChildrenByFilters(ChildrenTimeLineFilterModel filters) => await RestUtility.WebServiceAsync
+            ($"{_host.ChildrenTimelineEndpoint}/GetByFilters",
+                string.Empty,
+                filters,
+                "POST",
+                string.Empty,
+                string.Empty);
 
         public async Task<Response> Save(ChildrenTimeLineModel childrenTimeLine) => await RestUtility.WebServiceAsync
             ($"{_host.ChildrenTimelineEndpoint}",

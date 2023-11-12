@@ -19,6 +19,7 @@ namespace DB.Models
         public string ChildrenFatherName { get; set; }
         public string ChildrenMotherName { get; set; }
         public DateTime BirthDate { get; set; }
+        public int? ChildSex { get; set; }
 
         public virtual Users User { get; set; }
         public virtual ICollection<ChildrenTimeLine> ChildrenTimeLine { get; set; }

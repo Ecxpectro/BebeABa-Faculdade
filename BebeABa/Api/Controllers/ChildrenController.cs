@@ -22,5 +22,7 @@ namespace Api.Controllers
 
         [HttpGet("Children/{childrenId}")]
         public async Task<IActionResult> GetChildrenById(long childrenId) => Ok(await _childrenBusiness.GetChildrenById(childrenId));
-    }
+		[HttpGet("Children/GetByUserId/{userId}")]
+		public async Task<IActionResult> GetChildrenByUserId(long userId) => Ok(await _childrenBusiness.GetChildrenByUserId(userId));
+	}
 }

@@ -3,14 +3,20 @@
 }
 Children.URL_Save = `${App.RootLocationURL}/Children/Save`;
 Children.URL_SaveTimeLine = `${App.RootLocationURL}/Children/SaveTimeLine`;
+Children.URL_GridTimeLine = `${App.RootLocationURL}/Children/GridTimeLine`;
 
 Children.Children = null;
+Children.ChildrenId = null;
 
 Children.Init = function () {
 	Children.DataPicker();
 	Children.SaveChildren();
-	//Children.GridChildrenTimeLine();
+	
 	Children.SaveTimeLine();
+	console.log(Children.ChildrenId);
+}
+Children.InitTimeLine = function(){
+	Children.GridChildrenTimeLine();
 }
 
 Children.DataPicker = function () {
@@ -63,12 +69,12 @@ Children.SaveChildren = function () {
 		var date = moment(`${year}/${month.toString().padStart(2, '0')}/${day}`).format("YYYY-MM-DDTHH:mm:ss");
 
 		const children = {
-			ChildrenId : 0,
-			UserId : App.User.userId,
-			ChildrenName : $("#childrenName").val(),
-			ChildrenFatherName : $("#fatherName").val(),
-			ChildrenMotherName :  $("#motherName").val(),
-			BirthDate : date
+			ChildrenId: 0,
+			UserId: App.User.userId,
+			ChildrenName: $("#childrenName").val(),
+			ChildrenFatherName: $("#fatherName").val(),
+			ChildrenMotherName: $("#motherName").val(),
+			BirthDate: date
 		}
 		var formData = new FormData();
 		var childrenJson = JSON.stringify(children);
@@ -87,7 +93,7 @@ Children.SaveChildren = function () {
 			success: function (result) {
 				if (result.success) {
 					console.log(result);
-					App.HideLoadingModal();
+					//App.HideLoadingModal();
 				} else {
 					App.ToastError(result.msg);
 					App.HideLoadingModal();
@@ -99,41 +105,73 @@ Children.SaveChildren = function () {
 
 }
 
-Children.ShowModalChildrenTimeLine = function () {
+Children.ShowModalChildrenTimeLine = function (children) {
+
+	if (children != null) {
+		Children.Children = children;
+		$("#weight").val(children.weight);
+		$("#height").val(children.height);
+		$("#vaccine").val(children.vaccine);
+		$("#date-picker").val(children.timeLineDate);
+		$("#description").val(children.description);
+		$("#treatmentType").val(children.treatmentType);
+
+	}
+
 	$("#modalTimeLine").modal("show");
 }
 
-//Children.GridChildrenTimeLine = function () {
-//	$("#GridChildrenTimeLine").DataTable(
-//		{
-//			responsive: true,
-//			"destroy": true,
-//			"scrollX": false,
-//			"processing": true,
-//			"serverSide": true,
-//			//"ajax": {
-//			//	"url": PhysicalStores.URL_GridPhysicalStores,
-//			//	"type": "POST",
-//			//	"datatype": "json"
-//			//},
-//			"columnDefs": [
-//				{
-//					"targets": "_all",
-//					"className": "text-center"
-//				}
-//			],
-//			"columns": [
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//				{ "data": "", "name": "", "autoWidth": true },
-//			],
-//		});
-//}
+Children.GridChildrenTimeLine = function () {
+	console.log(Children.ChildrenId);
+	$("#GridChildrenTimeLine").DataTable({
+		responsive: true,
+		"destroy": true,
+		"scrollX": false,
+		"searching": false,
+		"processing": true,
+		"serverSide": true,
+		"ajax": {
+			"url": Children.URL_GridTimeLine,
+			"data": { childrenId: Children.ChildrenId },
+			"type": "POST",
+			"datatype": "json"
+		},
+		"columnDefs": [
+			{
+				"targets": "_all",
+				"className": "text-center"
+			}
+		],
+		"columns": [
+			{ "data": "childAge", "name": "childAge", "autoWidth": true },
+			{ "data": "weight", "name": "weight", "autoWidth": true },
+			{ "data": "height", "name": "height", "autoWidth": true },
+			{ "data": "vaccine", "name": "vaccine", "autoWidth": true },
+			{ "data": "treatmentType", "name": "treatmentType", "autoWidth": true },
+			{
+				"data": "timeLineDate",
+				"name": "timeLineDate",
+				"autoWidth": true,
+				"render": function (data) {
+					var formattedDate = moment(data).format('DD/MM/YYYY');
+					return formattedDate;
+				}
+			},
+			{ "data": "description", "name": "description", "autoWidth": true },
+			{
+				"render": function (data, type, full, meta) {
+					var render =
+						"<div class='custom-actions'>" +
+						"<a class='pointer' onclick='Children.ShowModalChildrenTimeLine(" + JSON.stringify(full).toString() + ");'> <i class='fa fa-edit' style='color: #3AB6FF;' title='Editar'></i> </a>" +
+						`<a href='../DownloadFile?fileName=${full.filePath}' class='pointer'> <i class='fa fa-download' style="color: #3AB6FF;" title='Baixar'></i> </a>` +
+						"</div>";
+					return render;
+				}
+			}
+		],
+	});
+}
+
 
 
 Children.SaveTimeLine = function () {
@@ -154,7 +192,8 @@ Children.SaveTimeLine = function () {
 			Vaccine: $("#vaccine").val(),
 			TreatmentType: $("#treatmentType").val(),
 			Description: $("#description").val(),
-			TimeLineDate: date
+			TimeLineDate: date,
+			filePath: Children?.Children?.filePath
 		}
 		var formData = new FormData();
 		var childrenTimeLineJson = JSON.stringify(childrenTimeLine);
@@ -174,6 +213,7 @@ Children.SaveTimeLine = function () {
 				if (result.success) {
 					console.log(result);
 					App.HideLoadingModal();
+					$("#modalTimeLine").modal("hide");
 				} else {
 					App.ToastError(result.msg);
 					App.HideLoadingModal();

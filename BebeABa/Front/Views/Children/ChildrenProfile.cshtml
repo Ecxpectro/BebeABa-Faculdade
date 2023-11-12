@@ -1,0 +1,32 @@
+﻿@model List<ChildrenModel>
+<head>
+    <style>
+
+        h2 {
+            color: #333;
+            font-size: 2em;
+        }
+
+        p {
+            color: #555;
+            margin: 8px 0;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<main>
+    <div class="profiles-container">
+        @foreach (var children in Model)
+        {
+            <div class="profile">
+                <a href="Index/@children.ChildrenId">
+                    <img src="/img/imgProjetoInt/@children.ImgPath" @(children.ChildSex == (int)ChildSex.Girl ? "class= child-girl-border-color" : "class=child-boy-border-color")>
+                    <h2 @(children.ChildSex == (int)ChildSex.Girl ? "class= child-girl-color" : "class=child-boy-color")>@children.ChildrenName</h2>
+                    <p><strong>Mãe:</strong> @children.ChildrenMotherName</p>
+                    <p><strong>Pai:</strong> @children.ChildrenFatherName</p>
+                    <p><strong>Data de Nascimento:</strong> @children.BirthDate.ToString("dd/MM/yyyy")</p>
+                </a>
+            </div>
+        }
+    </div>
+</main>

@@ -6,6 +6,7 @@ using Shared.ApiUtilities;
 using Shared.Enums;
 using Shared.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Api.Business
@@ -63,5 +64,30 @@ namespace Api.Business
             }
             return response;
         }
-    }
+
+		public async Task<Response> GetChildrenByUserId(long userId)
+		{
+			Response response = new Response();
+			try
+			{
+				var children = await _childrenRepository.GetChildrenByUserId(userId);
+				if (children is not null)
+				{
+					response.Status = StatusCode.Success;
+					response.Result = _mapper.Map<List<ChildrenModel>>(children);
+				}
+				else
+				{
+					response.Status = StatusCode.NotFound;
+					response.Message = "Not Found.";
+				}
+			}
+			catch (Exception ex)
+			{
+				response.Status = StatusCode.ServerError;
+				response.Message = ex.Message;
+			}
+			return response;
+		}
+	}
 }

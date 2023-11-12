@@ -422,3 +422,4 @@ C:\Estudios\Bebe-a-Ba\BebeAba\Front\obj\Debug\net5.0\Razor\Views\Register\Index.
 C:\Estudios\Bebe-a-Ba\BebeAba\Front\obj\Debug\net5.0\Razor\Views\Children\Index.cshtml.g.cs
 C:\Estudios\Bebe-a-Ba\BebeAba\Front\obj\Debug\net5.0\Razor\Views\Shared\_LoginLayout.cshtml.g.cs
 C:\Estudios\Bebe-a-Ba\BebeAba\Front\obj\Debug\net5.0\Razor\Views\Children\_ModalChildrenTimeLine.cshtml.g.cs
+C:\Estudios\Bebe-a-Ba\BebeAba\Front\obj\Debug\net5.0\Razor\Views\Children\ChildrenProfile.cshtml.g.cs

@@ -5,6 +5,8 @@
     <link href="~/plugins/jquery-toast/jquery.toast.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
     <link href="~/css/personalized.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
 </head>
@@ -16,10 +18,10 @@
         </label>
 
         <ul class="menu__box">
-            <li><a class="menu__item" href="#">Perfil</a></li>
-            <li><a class="menu__item" href="#">Linha do Tempo</a></li>
+            <li><a class="menu__item" asp-controller="Children" asp-action="RegisterChild">Cadastrar Filho</a></li>
+            <li><a class="menu__item" asp-controller="Children" asp-action="ChildrenProfile">Perfil</a></li>
             <li><a class="menu__item" href="#">Fórum</a></li>
-            <li><a class="menu__item" href="#">Sair</a></li>
+            <li><a class="menu__item" href="@Url.Action("Logout", "Logout")">Sair</a></li>
         </ul>
         <header style="text-align: center;">
             <strong>Bebê-a-Bá</strong>
@@ -29,17 +31,18 @@
             <img src="~/img/baby1.svg" alt="" width="120" style="margin-top: 20px;">
         </header>
     </div>
-    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+
 
  @*    <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - Front - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer> *@
+
+   
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -49,5 +52,8 @@
     <script src="~/js/bootstrap-waitingfor.js"></script>
     <script src="~/plugins/moment/moment.js"></script>
     <script src="~/app/app.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </main>

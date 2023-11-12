@@ -8,5 +8,6 @@ namespace Front.ViewModels.Interface
     {
         Task<Response> CreateChildren(ChildrenModel children);
         Task<Response> GetChildrenById(long childrenId);
+        Task<Response> GetChildrenByUserId(long userId);
     }
 }

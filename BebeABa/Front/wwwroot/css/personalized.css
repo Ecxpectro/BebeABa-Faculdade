@@ -1,8 +1,9 @@
 ﻿body {
 	background: linear-gradient(to right, #38b6ff, #f57cb9);
 }
-a{
-	cursor:pointer;
+
+a {
+	cursor: pointer;
 }
 
 header {
@@ -97,13 +98,15 @@ input[type="submit"]:hover {
 button[type="submit"]:hover {
 	background-color: rgb(103, 0, 199);
 }
-.form-login-w-40{
+
+.form-login-w-40 {
 	width: 40%
 }
+
 .register-background-color {
 	background-color: #ffaed6;
-	max-width:50%;
-	margin-top:12px;
+	max-width: 50%;
+	margin-top: 12px;
 }
 
 #menu__toggle {
@@ -194,42 +197,35 @@ button[type="submit"]:hover {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	width:80%;
+	width: 80%;
 	min-width: 80%;
 	word-wrap: break-word;
 	background-color: unset;
 	background-clip: border-box;
 	border: 1px solid rgba(33, 40, 50, 0.125);
 	border-radius: 0.35rem;
-
 }
 
 	.card > hr {
 		margin-right: 0;
 		margin-left: 0;
-		
 	}
 
 	.card > .list-group {
 		border-top: inherit;
 		border-bottom: inherit;
-		
 	}
 
 		.card > .list-group:first-child {
 			border-top-width: 0;
 			border-top-left-radius: 0.35rem;
 			border-top-right-radius: 0.35rem;
-
-			
 		}
 
 		.card > .list-group:last-child {
 			border-bottom-width: 0;
 			border-bottom-right-radius: 0.35rem;
 			border-bottom-left-radius: 0.35rem;
-
-			
 		}
 
 		.card > .card-header + .list-group,
@@ -241,26 +237,74 @@ button[type="submit"]:hover {
 	flex: 1 1 auto;
 	min-height: 1px;
 	padding: 1.35rem;
-
 }
+
 .modal-body {
 	position: relative;
 	flex: 1 1 auto;
 	padding: 1rem;
 }
 
-.modal-header{
+.modal-header {
 	border-bottom: none !important;
-	width:100% !important;
+	width: 100% !important;
 }
+
 .modal-footer {
 	border-top: none !important;
 	width: 100% !important;
 }
+
 .modal-body {
 	width: 100% !important;
 }
 
-.label-display-flex{
-	display:flex;
+.label-display-flex {
+	display: flex;
+}
+
+.profiles-container {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.profile {
+	flex: 0 1 calc(25% - 20px);
+	margin: 20px;
+	padding: 20px;
+	background-color: #f5f4e8;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 20%;
+}
+
+	.profile img {
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+		margin-bottom: 15px;
+	}
+
+	.profile a {
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+	}
+
+.child-boy-border-color {
+	border: 3px solid rgb(0, 110, 255);
+}
+.child-girl-border-color {
+	border: 3px solid rgb(224, 54, 182);
+}
+.child-boy-color {
+	color:rgb(0, 110, 255);
+}
+
+.child-girl-color {
+	color: rgb(224, 54, 182);
+}
+tfoot{
+	font-weight:bold;
 }

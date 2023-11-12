@@ -61,5 +61,7 @@ namespace Shared.Helpers
             var random = new Random();
             return random.Next(min, max);
         }
+        public static int SkipRows(int page, int pageSize) => (page - 1) * pageSize;
+
     }
 }

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:BasePage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:RecepcaoDigital.Views"
+    xmlns:viewmodels="clr-namespace:RecepcaoDigital.ViewModels"
+    xmlns:converters="clr-namespace:RecepcaoDigital.Converters"
+    xmlns:i18n="clr-namespace:RecepcaoDigital.Helpers;assembly=RecepcaoDigital" 
+    BackgroundColor="{Binding GeneralBackgroudColor}"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="RecepcaoDigital.Views.CountryChoisePage"
+    x:Name="CountryChoise"
+    Title="Paises">
+	<Page.Resources>
+		<converters:MarginConverter x:Key="marginConverter"/>
+		<converters:CornerConverter x:Key="cornerConverter"/>
+		<converters:ShadowConverter x:Key="shadowConverter"/>
+		<converters:RadioButtonConverter x:Key="radioConverter"/>
+		<converters:FooterColorConverter x:Key="footerColorConverter"/>
+	</Page.Resources>
+
+	<ContentPage.Content>
+		<AbsoluteLayout
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All">
+			<Frame
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Padding="0"
+                Margin="{ Binding LayoutType, Converter={StaticResource marginConverter} }"
+                BackgroundColor="{ Binding HeaderBackgroudColor }"
+                CornerRadius="{ Binding LayoutType, Converter={StaticResource cornerConverter} }"
+                HasShadow="{ Binding LayoutType, Converter={StaticResource shadowConverter} }"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                IsEnabled="False">
+
+				<Grid RowSpacing="0"
+                      BackgroundColor="{ Binding LayoutType, Converter={StaticResource footerColorConverter} }">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+
+					<StackLayout
+                        Grid.Row="2" BackgroundColor="{ Binding BodyBackgroudColor }">
+						<ScrollView>
+							<ListView
+                                ItemsSource="{Binding CountryItems}"
+                                HasUnevenRows="true"
+                                CachingStrategy="RecycleElement"
+                                ItemTapped="Country_Tapped">
+								<ListView.ItemTemplate>
+									<DataTemplate>
+										<ViewCell>
+											<StackLayout Orientation="Vertical">
+												<Grid Padding="10,0">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="Auto" />
+														<ColumnDefinition Width="*" />
+														<ColumnDefinition Width="Auto" />
+													</Grid.ColumnDefinitions>
+													<Grid.RowDefinitions>
+														<RowDefinition Height="Auto" />
+													</Grid.RowDefinitions>
+													<Label
+                                                        Grid.Column="1"
+                                                        HeightRequest="48"
+                                                        VerticalTextAlignment="Center"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        Text="{ Binding Title }"
+                                                        TextColor="{ Binding BindingContext.BodyTextColor, Source={x:Reference CountryChoise} }"
+                                                        FontSize="Title" />
+													<Image
+                                                        Grid.Column="2"                                                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                                        HeightRequest="32" WidthRequest="32"
+                                                        Source="{ Binding IsSelected, Converter={StaticResource radioConverter} }" />
+												</Grid>
+												<BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="LightGray" HeightRequest="1" Opacity="0.2" />
+											</StackLayout>
+										</ViewCell>
+									</DataTemplate>
+								</ListView.ItemTemplate>
+
+							</ListView>
+						</ScrollView>
+					</StackLayout>
+
+					<!--<StackLayout
+                        Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                        BackgroundColor="{Binding HeaderBackgroudColor}"/>-->
+
+					<StackLayout 
+                        Grid.Row="0"
+                        Padding="10"
+                        HeightRequest="40">
+
+						<Label
+                            Text="Paises"
+                            FontSize="Title"
+                            TextColor="{ Binding HeaderTextColor}"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+					</StackLayout>
+
+					<StackLayout
+                        Grid.Row="0" 
+                        Orientation="Horizontal"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Margin="0,0,10,0">
+
+						
+					</StackLayout>
+					<BoxView Grid.Row="1" Grid.Column="0" Margin="0" BackgroundColor="LightGray" HeightRequest="2" Opacity="0.5" />
+
+					<!--Posición original del ScrollView-->
+
+					<BoxView Grid.Row="3" Grid.Column="0" Margin="0" BackgroundColor="LightGray" HeightRequest="2" Opacity="0.5" />
+					<StackLayout 
+                        Grid.Row="4"
+                        HeightRequest="60">
+					</StackLayout>
+				</Grid>
+			</Frame>
+			<StackLayout
+                AbsoluteLayout.LayoutBounds="0,1,1,60"
+                AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"
+                Padding="15,5,15,0"
+                BackgroundColor="{ Binding LayoutType, Converter={StaticResource footerColorConverter} }">
+				<Grid
+                    BackgroundColor="{ Binding LayoutType, Converter={StaticResource footerColorConverter} }">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<Frame
+                        Grid.Row="0" Grid.Column="0"
+                        Padding="15,10"
+                        BackgroundColor="#23923d"
+                        CornerRadius="10"
+                        HasShadow="True"
+                        HorizontalOptions="FillAndExpand">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Tapped="BackFrame_Tapped" />
+						</Frame.GestureRecognizers>
+						<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+							<Label
+                                FontFamily="{StaticResource Solid}"
+                                FontSize="Large"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                Text="&#xf100;"
+                                TextColor="White" />
+							<Label
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="{i18n:Translate Common_ComeBack}"
+                                TextColor="White" />
+						</StackLayout>
+					</Frame>
+					<Frame
+                        Grid.Row="0" Grid.Column="1"
+                        Padding="15,10"
+                        BackgroundColor="#23923d"
+                        CornerRadius="10"
+                        HasShadow="True"
+                        HorizontalOptions="FillAndExpand">
+						<Frame.GestureRecognizers>
+							<TapGestureRecognizer Tapped="NextFrame_Tapped" />
+						</Frame.GestureRecognizers>
+						<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+							<Label
+                                FontAttributes="Bold"
+                                FontSize="Large"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="{i18n:Translate Common_Advance}"
+                                TextColor="White" />
+							<Label
+                                FontFamily="{StaticResource Solid}"
+                                FontSize="Large"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Text="&#xf101;"
+                                TextColor="White" />
+						</StackLayout>
+					</Frame>
+				</Grid>
+			</StackLayout>
+			<StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Gray"
+                Opacity="0.3"
+                IsVisible="{Binding IsBusy}" />
+			<Frame
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
+                BackgroundColor="Gray"
+                CornerRadius="15"
+                Opacity="0.8"
+                HasShadow="True"
+                WidthRequest="100"
+                HeightRequest="100"
+                IsVisible="{Binding IsBusy}">
+
+				<StackLayout Orientation="Vertical">
+					<ActivityIndicator
+                        IsEnabled="{Binding IsBusy}"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"
+                        Color="White"
+                        WidthRequest="100"
+                        HeightRequest="100" />
+				</StackLayout>
+			</Frame>
+		</AbsoluteLayout>
+	</ContentPage.Content>
+</views:BasePage>

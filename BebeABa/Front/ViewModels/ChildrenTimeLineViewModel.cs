@@ -1,5 +1,6 @@
 ﻿using Front.ViewModels.Interface;
 using Shared.ApiUtilities;
+using Shared.FilterModels;
 using Shared.Models;
 using Shared.Services.Interfaces;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace Front.ViewModels
         {
             _childrenTimeLineService = childrenTimeLineService;
         }
+
+        public async Task<Response> GetChildrenTimeLineByFilters(ChildrenTimeLineFilterModel filters) => await _childrenTimeLineService.GetChildrenByFilters(filters);
+
         public async Task<Response> Save(ChildrenTimeLineModel childrenTimeLine) => await _childrenTimeLineService.Save(childrenTimeLine);
 
     }

@@ -29,5 +29,13 @@ namespace Shared.Services
         "GET",
         string.Empty,
         string.Empty);
-    }
+
+		public async Task<Response> GetChildrenByUserId(long userId) => await RestUtility.WebServiceAsync(
+		$"{_host.ChildrenEndpoint}/GetByUserId/{userId}",
+		string.Empty,
+		null,
+		"GET",
+		string.Empty,
+		string.Empty);
+	}
 }

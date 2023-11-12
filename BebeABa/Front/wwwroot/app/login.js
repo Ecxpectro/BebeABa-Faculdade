@@ -43,14 +43,18 @@ Login.Login = function () {
 
 		$.post(Login.URL_Login, user, function (result) {
 			if (result.success) {
-				if (result.user.childrens == null) {
-					window.location.href = '/Children/RegisterChild'
+				console.log(result.user)
+				if (result.user.isDoctor) {
+					window.location.href = '/Forum/Index'
 				}
 				else {
-					window.location.href = '/Children/Index'
+					if (result.user.childrens == null) {
+						window.location.href = '/Children/RegisterChild'
+					}
+					else {
+						window.location.href = '/Children/ChildrenProfile'
+					}
 				}
-			
-				
 			} else {
 				if (result.msg != "") {
 					App.AlertError(result.msg);

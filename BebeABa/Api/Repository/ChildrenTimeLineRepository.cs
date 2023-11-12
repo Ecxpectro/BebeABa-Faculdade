@@ -1,6 +1,8 @@
 ﻿using Api.Repository.Interfaces;
 using DB.Models;
 using Microsoft.EntityFrameworkCore;
+using Shared.FilterModels;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Api.Repository
@@ -13,6 +15,20 @@ namespace Api.Repository
         {
             _context = context;
         }
+
+        public IQueryable<ChildrenTimeLine> GetByFilters(ChildrenTimeLineFilterModel filters)
+        {
+           var query = _context.ChildrenTimeLine.AsNoTracking();
+            if (filters != null)
+            {
+                if (filters.ChildrenId.HasValue)
+                {
+                    query = query.Where(x => x.ChildrenId == filters.ChildrenId);
+                }
+            }
+            return query;
+        }
+
         public async Task<bool> Save(ChildrenTimeLine childrenTimeLine)
         {
             if (childrenTimeLine.ChildrenTimeLineId == 0)

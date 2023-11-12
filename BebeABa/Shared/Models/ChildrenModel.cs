@@ -11,5 +11,6 @@ namespace Shared.Models
         public string ChildrenFatherName { get; set; }
         public string ChildrenMotherName { get; set; }
         public DateTime BirthDate { get; set; }
+        public int ChildSex { get; set; }
     }
 }
