@@ -38,4 +38,8 @@
     <None Include="wwwroot\plugins\moment\moment.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\imgProjetoInt\User\" />
+  </ItemGroup>
+
 </Project>

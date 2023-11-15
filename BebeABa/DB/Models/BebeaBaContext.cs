@@ -19,6 +19,9 @@ namespace DB.Models
 
         public virtual DbSet<Children> Children { get; set; }
         public virtual DbSet<ChildrenTimeLine> ChildrenTimeLine { get; set; }
+        public virtual DbSet<ForumAnswer> ForumAnswer { get; set; }
+        public virtual DbSet<ForumRelation> ForumRelation { get; set; }
+        public virtual DbSet<MainForum> MainForum { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,6 +70,49 @@ namespace DB.Models
                     .HasForeignKey(d => d.ChildrenId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChildrenTimeLine_Children");
+            });
+
+            modelBuilder.Entity<ForumAnswer>(entity =>
+            {
+                entity.Property(e => e.ForumAnswer1)
+                    .IsRequired()
+                    .HasColumnName("ForumAnswer");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.ForumAnswer)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ForumAnswer_Users");
+            });
+
+            modelBuilder.Entity<ForumRelation>(entity =>
+            {
+                entity.HasOne(d => d.ForumAnswer)
+                    .WithMany(p => p.ForumRelation)
+                    .HasForeignKey(d => d.ForumAnswerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ForumRelation_ForumAnswer");
+
+                entity.HasOne(d => d.MainForum)
+                    .WithMany(p => p.ForumRelation)
+                    .HasForeignKey(d => d.MainForumId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ForumRelation_MainForum");
+            });
+
+            modelBuilder.Entity<MainForum>(entity =>
+            {
+                entity.Property(e => e.MainForumMessage).IsRequired();
+
+                entity.Property(e => e.MainForumTitle)
+                    .IsRequired()
+                    .HasMaxLength(200);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.MainForum)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_MainForum_Users");
             });
 
             modelBuilder.Entity<Users>(entity =>

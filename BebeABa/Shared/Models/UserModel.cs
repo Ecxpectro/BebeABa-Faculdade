@@ -9,7 +9,7 @@ namespace Shared.Models
         public string UserFullName { get; set; }
         public string UserPassword { get; set; }
         public bool IsDoctor { get; set; }
-
+        public string UserFilePath { get; set; }
         public List<ChildrenModel> Childrens { get; set; }
         public bool CheckRememberMe { get; set; }
     }

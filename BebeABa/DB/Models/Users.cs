@@ -10,6 +10,8 @@ namespace DB.Models
         public Users()
         {
             Children = new HashSet<Children>();
+            ForumAnswer = new HashSet<ForumAnswer>();
+            MainForum = new HashSet<MainForum>();
         }
 
         public long UserId { get; set; }
@@ -20,5 +22,7 @@ namespace DB.Models
         public string UserFilePath { get; set; }
 
         public virtual ICollection<Children> Children { get; set; }
+        public virtual ICollection<ForumAnswer> ForumAnswer { get; set; }
+        public virtual ICollection<MainForum> MainForum { get; set; }
     }
 }

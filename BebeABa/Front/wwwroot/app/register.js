@@ -33,20 +33,34 @@ Register.ValidadeUserCreate = function () {
 
 Register.Register = function (user) {
 	App.ShowLoadingModal();
-	$.post(Register.URL_CreateUser, user).done(function (result) {
-		if (result.success) {
-			App.ToastSuccess("Seja bem vindo!");
-			if (user.IsDoctor == true) {
-				console.log("test")
+	var formData = new FormData();
+	var userJson = JSON.stringify(user);
+	var file = $("#userPhoto")[0].files[0];
+	console.log(userJson)
+	formData.append("UserJson", userJson);
+	formData.append("File", file);
+
+	$.ajax({
+		type: "POST",
+		url: Register.URL_CreateUser,
+		data: formData,
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function (result) {
+			if (result.success) {
+				App.ToastSuccess("Seja bem vindo!");
+				if (user.IsDoctor == true) {
+					console.log("test");
+				}
+				else {
+					window.location = `${App.RootLocationURL}/Children/RegisterChild`;
+				}
+			} else {
+				App.ToastError(result.msg);
+				App.HideLoadingModal();
 			}
-			else {
-				window.location = `${App.RootLocationURL}/Children/RegisterChild`;
-			}
-			
-		}
-		else {
-			App.ToastError(result.message);
-			App.HideLoadingModal();
+			return true;
 		}
 	});
 }
