@@ -16,6 +16,7 @@ namespace DB.Models
         public long UserId { get; set; }
         public string MainForumTitle { get; set; }
         public string MainForumMessage { get; set; }
+        public DateTime? MainForumDate { get; set; }
 
         public virtual Users User { get; set; }
         public virtual ICollection<ForumRelation> ForumRelation { get; set; }

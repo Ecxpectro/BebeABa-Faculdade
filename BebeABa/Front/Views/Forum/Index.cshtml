@@ -1,0 +1,79 @@
+﻿@model List<MainForumModel>
+@{
+    var userLogged = JsonConvert.DeserializeObject<UserModel>(FunctionsHelper.Decrypt(Context.Request.Cookies["userLoggedBebeABa"]));
+}
+<head>
+    <style>
+        div {
+            text-align: unset !important;
+        }
+    </style>
+</head>
+<main>
+    <div id="forum-container">
+        <h1>Fórum</h1>
+
+        <form id="topic-form">
+            <input type="text" id="topic-title" name="topic-title" placeholder="Título do Tópico" required>
+            <textarea id="topic-content" name="topic-content" rows="4" placeholder="Conteúdo" required></textarea>
+
+            <div class="button-container">
+                <button type="submit" class="create-button">Criar Tópico</button>
+            </div>
+        </form>
+        <div id="topics-list">
+            @foreach (var mainForum in Model)
+            {
+                <div class="topic" data-id="@mainForum.MainForumId">
+                    <div class="user-info">
+                        <img src="~/img/imgProjetoInt/User/@mainForum.User.UserFilePath" alt="Imagem do Usuário">
+                        <span>@mainForum.User.UserFullName</span>
+                    </div>
+                    <div>
+                        <h2>@mainForum.MainForumTitle</h2>
+                        <p>@mainForum.MainForumMessage</p>
+                    </div>
+                    <div class="metadata">@mainForum?.MainForumDate?.ToString("dd-MM-yyyy hh:MM:ss")</div>
+                    <div class="actions">
+                        @if (userLogged.UserId == mainForum.UserId)
+                        {
+                            <button class="delete-button" data-id="@mainForum.MainForumId">Excluir</button>
+                        }
+                        <button class="reply-button" data-id="@mainForum.MainForumId">Responder</button>
+                    </div>
+                    <div class="answer-hide-div"></div>
+                    @foreach (var forumAnswer in mainForum.ForumAnswers)
+                    {
+                        <div class="response" data-id="@forumAnswer.ForumAnswerId">
+                            <div class="user-info">
+                                <img src="@(!string.IsNullOrEmpty(forumAnswer.User.UserFilePath) ? $"img/imgProjetoInt/User/{forumAnswer.User.UserFilePath}" : string.Empty)" alt="Imagem do Usuário">
+                                <span>@forumAnswer.User.UserFullName</span>
+                            </div>
+                            <div>
+                                <h3>Resposta</h3>
+                                <p>@forumAnswer.ForumAnswer1</p>
+                            </div>
+                            <div class="metadata">@forumAnswer.ForumAnswerDate</div>
+                            @if (userLogged.UserId == forumAnswer.UserId)
+                            {
+                                <div class="actions-response" style="justify-content:end">
+                                    <button class="delete-button-response">Excluir</button>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</main>
+@section scripts{
+    <script src="~/app/forum.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.User = @Html.Raw(Json.Serialize(userLogged));
+            Forum.Init();
+
+        });
+    </script>
+}

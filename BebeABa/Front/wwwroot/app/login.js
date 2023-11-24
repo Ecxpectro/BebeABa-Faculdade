@@ -49,7 +49,7 @@ Login.Login = function () {
 					window.location.href = '/Forum/Index'
 				}
 				else {
-					if (result.user.childrens == null) {
+					if (result.user.childrens.length == 0) {
 						window.location.href = '/Children/RegisterChild'
 					}
 					else {

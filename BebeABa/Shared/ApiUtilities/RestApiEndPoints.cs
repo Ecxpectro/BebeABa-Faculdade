@@ -15,6 +15,8 @@ namespace Shared.ApiUtilities
         public string UserEndpoint => $"{BaseAddress}BebeABa/Users";
         public string ChildrenEndpoint => $"{BaseAddress}BebeABa/Children";
         public string ChildrenTimelineEndpoint => $"{BaseAddress}BebeABa/ChildrenTimeLine";
+        public string MainForumServiceEndpoint => $"{BaseAddress}BebeABa/MainForum";
+        public string ForumAnswerServiceEndpoint => $"{BaseAddress}BebeABa/ForumAnswer";
 
     }
 }

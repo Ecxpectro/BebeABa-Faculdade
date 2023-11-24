@@ -13,7 +13,6 @@ Children.Init = function () {
 	Children.SaveChildren();
 	
 	Children.SaveTimeLine();
-	console.log(Children.ChildrenId);
 }
 Children.InitTimeLine = function(){
 	Children.GridChildrenTimeLine();
@@ -77,7 +76,6 @@ Children.SaveChildren = function () {
 			BirthDate: date,
 			ChildSex: $("#childSex").val()
 		}
-		console.log(children)
 		var formData = new FormData();
 		var childrenJson = JSON.stringify(children);
 		var file = $("#childrenPicture")[0].files[0];
@@ -123,7 +121,6 @@ Children.ShowModalChildrenTimeLine = function (children) {
 }
 
 Children.GridChildrenTimeLine = function () {
-	console.log(Children.ChildrenId);
 	$("#GridChildrenTimeLine").DataTable({
 		responsive: true,
 		"destroy": true,
@@ -212,7 +209,6 @@ Children.SaveTimeLine = function () {
 			processData: false,
 			success: function (result) {
 				if (result.success) {
-					console.log(result);
 					App.HideLoadingModal();
 					$("#modalTimeLine").modal("hide");
 				} else {

@@ -16,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -39,18 +40,26 @@ namespace Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
-
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                
+            });
 
             //Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IChildrenRepository, ChildrenRepository>();
             services.AddScoped<IChildrenTimeLineRepository, ChildrenTimeLineRepository>();
+            services.AddScoped<IMainForumRepository, MainForumRepository>();
+            services.AddScoped<IForumAnswerRepository, ForumAnswerRepository>();
 
 
             //Business
             services.AddScoped<IUserBusiness, UserBusiness>();
             services.AddScoped<IChildrenBusiness, ChildrenBusiness>();
             services.AddScoped<IChildrenTimeLineBusiness, ChildrenTimeLineBusiness>();
+            services.AddScoped<IMainForumBusiness, MainForumBusiness>();
+            services.AddScoped<IForumAnswerBusiness, ForumAnswerBusiness>();
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -65,7 +74,6 @@ namespace Api
                 }).EnableSensitiveDataLogging();
             });
         }
-    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

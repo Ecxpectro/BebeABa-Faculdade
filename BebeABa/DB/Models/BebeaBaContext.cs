@@ -78,6 +78,8 @@ namespace DB.Models
                     .IsRequired()
                     .HasColumnName("ForumAnswer");
 
+                entity.Property(e => e.ForumAnswerDate).HasColumnType("datetime");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.ForumAnswer)
                     .HasForeignKey(d => d.UserId)
@@ -102,6 +104,8 @@ namespace DB.Models
 
             modelBuilder.Entity<MainForum>(entity =>
             {
+                entity.Property(e => e.MainForumDate).HasColumnType("datetime");
+
                 entity.Property(e => e.MainForumMessage).IsRequired();
 
                 entity.Property(e => e.MainForumTitle)

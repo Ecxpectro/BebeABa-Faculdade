@@ -44,8 +44,8 @@ namespace Front.Controllers
                         if (extension == "jpeg" || extension == "jpg" || extension == "png")
                         {
 
-                            var fileName = files[0].FileName;
-                            var path = $"{Constants.UserImagesPath}/{FunctionsHelper.GenerateNumbersRandom(0, 999999)}{fileName}";
+                            var fileName = $"{FunctionsHelper.GenerateNumbersRandom(0, 999999)}{files[0].FileName}";
+                            var path = $"{Constants.UserImagesPath}/{fileName}";
 
                             using (var fs = System.IO.File.Create(path))
                             { await files[0].CopyToAsync(fs); }
