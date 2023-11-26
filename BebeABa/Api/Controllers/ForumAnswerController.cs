@@ -1,4 +1,5 @@
-﻿using Api.Business.Interfaces;
+﻿using Api.Business;
+using Api.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Models;
 using System.Threading.Tasks;
@@ -17,5 +18,8 @@ namespace Api.Controllers
         }
         [HttpPost("ForumAnswer")]
         public async Task<IActionResult> CreateAnswer(ForumAnswerModel forumAnswer) => Ok(await _forumAnswerBusiness.CreateAnswer(forumAnswer));
+       
+        [HttpDelete("ForumAnswer/{id:long}")]
+        public async Task<IActionResult> Delete(long id) => Ok(await _forumAnswerBusiness.Delete(id));
     }
 }

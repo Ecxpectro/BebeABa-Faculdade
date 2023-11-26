@@ -23,5 +23,12 @@ namespace Shared.Services
                 "POST",
                 string.Empty,
                 string.Empty);
+        public async Task<Response> DeleteAnswer(long id) => await RestUtility.WebServiceAsync(
+          $"{_host.ForumAnswerServiceEndpoint}/{id}",
+            string.Empty,
+            null,
+            "DELETE",
+            string.Empty,
+            string.Empty);
     }
 }

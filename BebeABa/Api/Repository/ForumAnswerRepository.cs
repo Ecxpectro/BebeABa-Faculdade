@@ -1,6 +1,7 @@
 ﻿using Api.Repository.Interfaces;
 using DB.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace Api.Repository
@@ -38,5 +39,39 @@ namespace Api.Repository
             await _context.ForumRelation.AddAsync(relation);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<bool> DeleteAnswer(ForumAnswer forumAnswer)
+        {
+            bool isOk = false;
+            try
+            {
+                if (forumAnswer is not null)
+                {
+                    await DeleteRelationById(forumAnswer.ForumAnswerId);
+                    _context.ForumAnswer.Remove(forumAnswer);
+                    isOk = true;
+                    await _context.SaveChangesAsync();
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+            return isOk;
+        }
+        public async Task DeleteRelationById(long relationId)
+        {
+
+            var relationToDelete = await _context.ForumRelation.FirstOrDefaultAsync(x => x.ForumAnswerId == relationId);
+
+            if (relationToDelete != null)
+            {
+                _context.ForumRelation.Remove(relationToDelete);
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<ForumAnswer> GetById(long id) => await _context.ForumAnswer.FirstOrDefaultAsync(x => x.ForumAnswerId == id);
     }
 }

@@ -37,7 +37,7 @@
                     <div class="actions">
                         @if (userLogged.UserId == mainForum.UserId)
                         {
-                            <button class="delete-button" data-id="@mainForum.MainForumId">Excluir</button>
+                            <button class="delete-button" name="mainForum" data-id="@mainForum.MainForumId">Excluir</button>
                         }
                         <button class="reply-button" data-id="@mainForum.MainForumId">Responder</button>
                     </div>
@@ -46,7 +46,7 @@
                     {
                         <div class="response" data-id="@forumAnswer.ForumAnswerId">
                             <div class="user-info">
-                                <img src="@(!string.IsNullOrEmpty(forumAnswer.User.UserFilePath) ? $"img/imgProjetoInt/User/{forumAnswer.User.UserFilePath}" : string.Empty)" alt="Imagem do Usuário">
+                                <img src="@(!string.IsNullOrEmpty(forumAnswer.User.UserFilePath) ? $"/img/imgProjetoInt/User/{forumAnswer.User.UserFilePath}" : string.Empty)" alt="Imagem do Usuário">
                                 <span>@forumAnswer.User.UserFullName</span>
                             </div>
                             <div>
@@ -56,8 +56,8 @@
                             <div class="metadata">@forumAnswer.ForumAnswerDate</div>
                             @if (userLogged.UserId == forumAnswer.UserId)
                             {
-                                <div class="actions-response" style="justify-content:end">
-                                    <button class="delete-button-response">Excluir</button>
+                                <div class="actions">
+                                    <button data-id="@forumAnswer.ForumAnswerId" name="answer" class="delete-button">Excluir</button>
                                 </div>
                             }
                         </div>

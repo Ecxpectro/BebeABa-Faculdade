@@ -23,6 +23,14 @@ namespace Shared.Services
                 string.Empty,
                 string.Empty);
 
+        public async Task<Response> DeleteForum(long id) => await RestUtility.WebServiceAsync(
+          $"{_host.MainForumServiceEndpoint}/{id}",
+            string.Empty,
+            null,
+            "DELETE",
+            string.Empty,
+            string.Empty);
+
         public async Task<Response> GetAllForum() => await RestUtility.WebServiceAsync
             ($"{_host.MainForumServiceEndpoint}/GetAllForum",
                 string.Empty,

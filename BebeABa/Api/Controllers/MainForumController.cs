@@ -22,5 +22,7 @@ namespace Api.Controllers
 
         [HttpGet("MainForum/GetAllForum")]
         public async Task<ActionResult<Response>> GetAllForum() => Ok(await _mainForumBusiness.GetAllForum());
+        [HttpDelete("MainForum/{id:long}")]
+        public async Task<IActionResult> Delete(long id) => Ok(await _mainForumBusiness.Delete(id));
     }
 }

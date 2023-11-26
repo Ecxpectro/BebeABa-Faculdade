@@ -38,5 +38,32 @@ namespace Api.Business
 
             return response;
         }
+
+        public async Task<Response> Delete(long id)
+        {
+            var response = new Response();
+
+            try
+            {
+                var answer = await _forumAnswerRepository.GetById(id);
+                if (answer is not null)
+                {
+                    response.Result = await _forumAnswerRepository.DeleteAnswer(answer);
+                    response.Status = response.Result is not null ? StatusCode.Success : StatusCode.BadRequest;
+                    response.Message = response.Result is not null ? string.Empty : "Not saved or update.";
+                }
+                else
+                {
+                    response.Status = StatusCode.NotFound;
+                    response.Message = "Not found record.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Status = StatusCode.ServerError;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
     }
 }

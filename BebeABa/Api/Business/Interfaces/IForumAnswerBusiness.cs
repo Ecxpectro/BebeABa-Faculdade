@@ -7,5 +7,6 @@ namespace Api.Business.Interfaces
     public interface IForumAnswerBusiness
     {
         Task<Response> CreateAnswer(ForumAnswerModel forumAnswer);
+        Task<Response> Delete(long id);
     }
 }

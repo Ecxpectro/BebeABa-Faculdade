@@ -8,5 +8,6 @@ namespace Api.Business.Interfaces
     {
         Task<Response> CreateForum(MainForumModel mainForum);
         Task<Response> GetAllForum();
+        Task<Response> Delete(long id);
     }
 }

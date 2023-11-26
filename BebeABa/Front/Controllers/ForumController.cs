@@ -77,5 +77,25 @@ namespace Front.Controllers
 
             return Json(new { data = model, success = isOk, message = msg });
         }
+        public async Task<IActionResult> DeleteMainForum(long id)
+        {
+            Response response = null;
+
+            if (id > 0)
+            {
+                response = await _mainForumViewModel.DeleteMainForum(id);
+            }
+            return Json(new { success = response is not null && response.Status == Shared.Enums.StatusCode.Success });
+        }
+        public async Task<IActionResult> DeleteAnswer(long id)
+        {
+            Response response = null;
+
+            if (id > 0)
+            {
+                response = await _forumAnswerViewModel.DeleteAnswer(id);
+            }
+            return Json(new { success = response is not null && response.Status == Shared.Enums.StatusCode.Success });
+        }
     }
 }

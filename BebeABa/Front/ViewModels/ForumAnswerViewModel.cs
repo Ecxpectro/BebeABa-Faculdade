@@ -15,6 +15,7 @@ namespace Front.ViewModels
             _forumAnswerService = forumAnswerService;
         }
         public async Task<Response> CreateAnswer(ForumAnswerModel forumAnswer) => await _forumAnswerService.CreateAnswer(forumAnswer);
-      
+
+        public async Task<Response> DeleteAnswer(long id)=> await _forumAnswerService.DeleteAnswer(id);
     }
 }

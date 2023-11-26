@@ -8,5 +8,6 @@ namespace Shared.Services.Interfaces
     {
         Task<Response> CreateForum(MainForumModel mainForum);
         Task<Response> GetAllForum();
+        Task<Response> DeleteForum(long id);
     }
 }

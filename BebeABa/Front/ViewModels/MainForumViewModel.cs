@@ -16,6 +16,8 @@ namespace Front.ViewModels
         }
         public async Task<Response> CreateForum(MainForumModel mainForum) => await _mainForumService.CreateForum(mainForum);
 
+        public async Task<Response> DeleteMainForum(long id) => await _mainForumService.DeleteForum(id);
+
         public async Task<Response> GetAllForum() => await _mainForumService.GetAllForum();
 
     }
