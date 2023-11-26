@@ -13,10 +13,11 @@ namespace Api.Repository
         {
             _context = context;
         }
-        public async Task<bool> CreateUser(Users user)
+        public async Task<Users> CreateUser(Users user)
         {
             _context.Add(user);
-            return await _context.SaveChangesAsync() > 0;
+            await _context.SaveChangesAsync();
+            return user;
         }
 
         public async Task<Users> Login(Users user) =>

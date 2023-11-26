@@ -59,7 +59,8 @@ namespace Front.Controllers
                     response = await _userViewModel.CreateUser(user);
                     if (response.Status == Shared.Enums.StatusCode.Success)
                     {
-                        var cookieValue = FunctionsHelper.Encrypt(JsonConvert.SerializeObject(user));
+                        var userCreated = JsonConvert.DeserializeObject<UserModel>(response.Result.ToString());
+                        var cookieValue = FunctionsHelper.Encrypt(JsonConvert.SerializeObject(userCreated));
                         var cookieOption = new CookieOptions { Expires = DateTime.Now.AddDays(360) };
                         HttpContext.Response.Cookies.Append("userLoggedBebeABa", cookieValue, cookieOption);
                         isOk = true;

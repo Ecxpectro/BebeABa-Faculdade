@@ -52,6 +52,7 @@ Register.Register = function (user) {
 				App.ToastSuccess("Seja bem vindo!");
 				if (user.IsDoctor == true) {
 					console.log("test");
+					window.location = `${App.RootLocationURL}/Forum/Index`;
 				}
 				else {
 					window.location = `${App.RootLocationURL}/Children/RegisterChild`;

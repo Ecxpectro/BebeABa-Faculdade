@@ -27,8 +27,8 @@ namespace Api.Business
             try
             {
                 response.Result = await _userRepository.CreateUser(_mapper.Map<Users>(user));
-                response.Status = Convert.ToBoolean(response.Result) ? StatusCode.Success : StatusCode.NotFound;
-                response.Message = Convert.ToBoolean(response.Result) ? string.Empty : "Could not add data.";
+                response.Status = response.Result != null ? StatusCode.Success : StatusCode.NotFound;
+                response.Message = response.Result != null ? string.Empty : "Could not add data.";
             }
             catch (Exception ex)
             {

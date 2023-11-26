@@ -1,4 +1,7 @@
-﻿<head>
+﻿@{
+    var userLogged = JsonConvert.DeserializeObject<UserModel>(FunctionsHelper.Decrypt(Context.Request.Cookies["userLoggedBebeABa"]));
+}
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -16,10 +19,12 @@
         <label class="menu__btn" for="menu__toggle">
             <span></span>
         </label>
-
         <ul class="menu__box">
-            <li><a class="menu__item" asp-controller="Children" asp-action="RegisterChild">Cadastrar Filho</a></li>
-            <li><a class="menu__item" asp-controller="Children" asp-action="ChildrenProfile">Perfil</a></li>
+            @if (!userLogged.IsDoctor)
+            {
+                <li><a class="menu__item" asp-controller="Children" asp-action="ChildrenProfile">Perfil</a></li>
+                <li><a class="menu__item" asp-controller="Children" asp-action="RegisterChild">Cadastrar Filho</a></li>
+            }
             <li><a class="menu__item" asp-controller="Forum" asp-action="Index">Fórum</a></li>
             <li><a class="menu__item" href="@Url.Action("Logout", "Logout")">Sair</a></li>
         </ul>
