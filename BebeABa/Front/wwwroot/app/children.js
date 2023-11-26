@@ -160,9 +160,11 @@ Children.GridChildrenTimeLine = function () {
 				"render": function (data, type, full, meta) {
 					var render =
 						"<div class='custom-actions'>" +
-						"<a class='pointer' onclick='Children.ShowModalChildrenTimeLine(" + JSON.stringify(full).toString() + ");'> <i class='fa fa-edit' style='color: #3AB6FF;' title='Editar'></i> </a>" +
-						`<a href='../DownloadFile?fileName=${full.filePath}' class='pointer'> <i class='fa fa-download' style="color: #3AB6FF;" title='Baixar'></i> </a>` +
-						"</div>";
+						"<a class='pointer' onclick='Children.ShowModalChildrenTimeLine(" + JSON.stringify(full).toString() + ");'> <i class='fa fa-edit' style='color: #3AB6FF;' title='Editar'></i> </a>";
+					if (full.filePath != null && full.filePath != '') {
+						render += `<a href='../DownloadFile?fileName=${full.filePath}' class='pointer'> <i class='fa fa-download' style='color: #3AB6FF;' title='Baixar'></i> </a>`;
+					}
+					render += "</div>";
 					return render;
 				}
 			}
@@ -184,7 +186,7 @@ Children.SaveTimeLine = function () {
 
 		const childrenTimeLine = {
 			ChildrenTimeLineId: Children.Children == null ? 0 : Children.Children.childrenTimeLineId,
-			ChildrenId: 7,
+			ChildrenId: Children.ChildrenId,
 			Height: $("#height").val(),
 			Weight: $("#weight").val(),
 			Vaccine: $("#vaccine").val(),
@@ -209,6 +211,7 @@ Children.SaveTimeLine = function () {
 			processData: false,
 			success: function (result) {
 				if (result.success) {
+					Children.GridChildrenTimeLine();
 					App.HideLoadingModal();
 					$("#modalTimeLine").modal("hide");
 				} else {
